@@ -27,10 +27,10 @@ export class AppComponent {
 	vypocetRadu:number; 
 	jeRemiza: boolean = false;
 	asponJednoPolicko:boolean = false;
-	pole3 = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-	pole7 = [' ', ' ', ' ', ' ', ' ', ' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-	pole15 = [' ', ' ', ' ', ' ', ' ', ' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-	pole20 = [' ', ' ', ' ', ' ', ' ', ' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+	pole3 = ['', '', '', '', '', '', '', '', '', '', ''];
+	pole7 = ['', '', '', '', '', '','', '', '', '', '', '', '', '', ''];
+	pole15 = ['', '', '', '', '', '','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+	pole20 = ['', '', '', '', '', '','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
 	constructor() {
 	}
@@ -77,7 +77,6 @@ export class AppComponent {
 		this.vitaznaPodmienka();
 		this.asponJednoPolicko = true;
 		this.vsetkoPlne++;
-		console.log(this.vsetkoPlne);
 	}
 
 	koniecHry() {
