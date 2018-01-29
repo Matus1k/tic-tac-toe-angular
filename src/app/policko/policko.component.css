@@ -1,0 +1,22 @@
+.policko {
+	background: #ccc;
+	width: 40px;
+	height: 40px;
+	border: solid 1px #aaa;
+	float: left;
+	box-sizing: border-box;
+}
+
+.hracx {
+	background: url('../../assets/images/x.png') no-repeat;
+	background-attachment: cover;
+}
+
+.hraco { 
+	background: url('../../assets/images/o.png') no-repeat;
+	background-attachment: cover;
+}
+
+.skrytpole {
+	display: none;
+}

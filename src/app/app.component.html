@@ -1,0 +1,68 @@
+<div class="container">
+    
+    <h1>
+        Tic Tac Toe!
+    </h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <nav class="text-centeredq">
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm">                 
+                    <ul class="nav nav-stacked"> 
+                        <li><button class="btn btn-warning app-menu" type="submit">{{ novaHraBtn }}</button></li>
+                        <hr>
+                        <li>
+                            <label for="velkostpola">Velkosť hracieho poľa</label>
+                            <select class="selectpicker app-menu" [ngModel]="defaultRad" name="velkostpola">
+                                <option value="3">3x3</option>
+                                <option value="7">7x7</option>
+                                <option value="15">15x15</option>
+                                <option value="20">20x20</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="dlzkaradu">Dĺžka výherneho radu</label>
+                            <select class="selectpicker app-menu" [ngModel]="defaultPole" name="dlzkaradu">
+                                <option value="trivrade">3 v rade</option>
+                                <option value="styrivrade">4 v rade</option>
+                                <option value="patvrade">5 v rade</option>
+                            </select>
+                        </li>
+                            <hr>
+                        <li *ngIf="vykreslenePole" class="label label-default natahu">Na ťahu je: 
+                            <img *ngIf="naTahuJeX; else naTahuJeO" [src]="'assets/images/x.png'" alt="image" width="30"> 
+                            <ng-template #naTahuJeO>
+                                <img [src]="'assets/images/o.png'" alt="image" width="30"> 
+                            </ng-template>
+                        </li>
+                    </ul>
+                </form>   
+            </nav>
+        </div>
+
+        <div class="col-sm-9 hraciepole">
+            <div *ngFor="let rady of velkostPola; index as j" class="clearfix">
+                <app-policko *ngFor="let stlpce of velkostPola; index as i"
+                    (odosielamKtoJeNaTahu)="prijimamKtoJeNaTahu($event)"
+                    [naTahuJeO]="naTahuJeX"
+                    [uniqueId]="i + j*velkostPolaPreId"
+                    [rad]="j"
+                    [stlpec]="i"
+                    [velkostPola]="velkostPolaPreId"
+                >
+                </app-policko>
+            </div>            
+        </div>
+    </div>
+
+</div>
+
+<div class="vitaznyoverlay" *ngIf="jeKoniecHry"> 
+    <div class="overlay-content">
+        <h2>{{ vitazJe }}</h2>
+        <p><button (click)="resetPola()" class="btn btn-default">Začať znova</button></p>
+    </div>
+</div>
+
+
